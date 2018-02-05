@@ -80,7 +80,6 @@ public class Program
     Car mercedes = new Car("Mercedes Benz CLS550", 39900, 37979);
 
     List<Car> Cars = new List<Car>() {porsche, ford, lexus, mercedes };
-    // List<Car> Cars = new List<Car>() { porsche };
     foreach(Car automobile in Cars)
     {
       Console.WriteLine(automobile.GetMakeModel());
@@ -93,15 +92,28 @@ public class Program
     string stringMaxPrice = Console.ReadLine();
     int maxPrice = int.Parse(stringMaxPrice);
 
+    Console.WriteLine("Enter maximum milage: ");
+    string stringMaxMilage = Console.ReadLine();
+    int intMaxMilage = int.Parse(stringMaxMilage);
+
     List<Car> CarsMatchingSearch = new List<Car>();
 
+    int counter = 0;
     foreach (Car automobile in Cars)
     {
-      if (automobile.GetPrice() < maxPrice)
+      if ((automobile.GetPrice() < maxPrice) && (automobile.GetMiles() < intMaxMilage))
       {
         CarsMatchingSearch.Add(automobile);
       }
+      else {
+        counter ++;
+      }
     }
+    if (counter == Cars.Count)
+    {
+      Console.WriteLine("No matching Cars.");
+    }
+
 
     foreach(Car automobile in CarsMatchingSearch)
     {
