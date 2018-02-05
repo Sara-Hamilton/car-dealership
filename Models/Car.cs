@@ -51,31 +51,42 @@ class Car
   //   Miles = automobileMiles;
   //   FuelType = automobileFuelType;
   // }
+
+  public Car(string automobileMakeModel, int automobilePrice, int automobileMiles, string automobileFuelType = "Unleaded")
+  {
+    SetMakeModel(automobileMakeModel);
+    SetPrice(automobilePrice);
+    SetMiles(automobileMiles);
+    SetFuelType(automobileFuelType);
+  }
 }
 
 public class Program
 {
   public static void Main()
   {
-    Car anotherCar = new Car();
-    anotherCar.SetMakeModel("2014 Porsche 911");
-    anotherCar.SetPrice(114991);
-    anotherCar.SetMiles(7864);
-    anotherCar.SetFuelType("Unleaded");
-    Console.WriteLine(anotherCar.GetMakeModel());
-    Console.WriteLine("Price: $" + anotherCar.GetPrice());
-    Console.WriteLine("Mileage: " + anotherCar.GetMiles());
-    Console.WriteLine("FuelType: " + anotherCar.GetFuelType());
-    // Car porsche = new Car("2014 Porsche 911", 114991, 7864);
-    // Car ford = new Car("2011 Ford F450", 55995, 14241, "Diesel");
-    // Car lexus = new Car("2013 Lexus RX 350", 44700, 20000);
-    // Car mercedes = new Car("Mercedes Benz CLS550", 39900, 37979);
+    // Car anotherCar = new Car();
+    // anotherCar.SetMakeModel("2014 Porsche 911");
+    // anotherCar.SetPrice(114991);
+    // anotherCar.SetMiles(7864);
+    // anotherCar.SetFuelType("Unleaded");
+    // Console.WriteLine(anotherCar.GetMakeModel());
+    // Console.WriteLine("Price: $" + anotherCar.GetPrice());
+    // Console.WriteLine("Mileage: " + anotherCar.GetMiles());
+    // Console.WriteLine("FuelType: " + anotherCar.GetFuelType());
+    Car porsche = new Car("2014 Porsche 911", 114991, 7864);
+    Car ford = new Car("2011 Ford F450", 55995, 14241, "Diesel");
+    Car lexus = new Car("2013 Lexus RX 350", 44700, 20000);
+    Car mercedes = new Car("Mercedes Benz CLS550", 39900, 37979);
 
-    // List<Car> Cars = new List<Car>() {porsche, ford, lexus, mercedes };
-    List<Car> Cars = new List<Car>() { anotherCar };
+    List<Car> Cars = new List<Car>() {porsche, ford, lexus, mercedes };
+    // List<Car> Cars = new List<Car>() { porsche };
     foreach(Car automobile in Cars)
     {
       Console.WriteLine(automobile.GetMakeModel());
+      Console.WriteLine("Price: $" + automobile.GetPrice());
+      Console.WriteLine("Mileage: " + automobile.GetMiles());
+      Console.WriteLine("FuelType: " + automobile.GetFuelType());
     }
 
     Console.WriteLine("Enter maximum price: ");
